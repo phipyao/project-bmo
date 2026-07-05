@@ -96,5 +96,7 @@ Or start BMO in puppet mode entirely, where every line you type (no `/bmo` prefi
 
 ## Attribution
 
-- Face artwork (`faces/`, `svg_faces/`) and the BMO Piper voice model (`voice/bmo.onnx`) originate from [brenpoly/be-more-agent](https://github.com/brenpoly/be-more-agent), a free fan-made BMO character built on Piper's "Amy" base voice model.
+- **Face artwork:** BMO's face animations (`faces/`, `svg_faces/`, excluding `faces/speaking/`) are rendered from SVG artwork by Cherry Honey, published as a free community resource on Figma. Thank you for the pixel-perfect expressions that bring BMO to life!
+- **Lip-sync visemes:** BMO's 6 talking mouth shapes (`faces/speaking/`) were hand-animated by moorew using Rhubarb Lip Sync and After Effects — properly articulated visemes trained on real speech, replacing the original procedurally-generated shapes.
+- **Voice model:** The BMO Piper voice model (`voice/bmo.onnx`) is from [brenpoly/be-more-agent](https://github.com/brenpoly/be-more-agent), fine-tuned from Piper's "Amy" base model.
 - BMO and Adventure Time are trademarks of Cartoon Network / Warner Bros. Discovery. This is a non-commercial fan project, not affiliated with or endorsed by them.
