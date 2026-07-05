@@ -31,9 +31,10 @@ if __name__ == "__main__":
     ui = FaceUI(root)
 
     if args.as_bmo:
-        print("bmo puppet mode -- type anything and BMO will say it")
+        print("as-bmo mode -- type anything and BMO will say it")
     else:
         print("bmo is up!")
+        print("use /bmo <text> to make BMO say something directly")
     print("press esc in the face window to quit")
     print("> ", end="", flush=True)
     while not ui.closed:
@@ -44,6 +45,8 @@ if __name__ == "__main__":
             msg = line.rstrip("\n")
             if args.as_bmo:
                 speak(msg, ui=ui)
+            elif msg.startswith("/bmo "):
+                speak(msg[len("/bmo "):], ui=ui)
             else:
                 response = chat(msg)
                 print(response)
