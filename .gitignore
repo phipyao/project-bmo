@@ -1,6 +1,13 @@
 # generated training artifacts (regenerate with `python training.py`)
 /model/
 
+# pre-synthesized voice cache (regenerate with `python precompute_voice.py`)
+/voice_cache/
+
+# BMO Piper voice model (63MB binary, copy from be-more-hailo/piper/ instead of committing)
+/voice/*.onnx
+/voice/*.onnx.json
+
 # python
 __pycache__/
 *.pyc
