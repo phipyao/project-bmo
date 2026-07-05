@@ -64,7 +64,7 @@ This bakes each response's audio and exact viseme timeline into `voice_cache/` (
 
 ## Face UI + lip sync
 
-`ui.py` opens a Tkinter window showing BMO's face (frames in `faces/`, generated from `svg_faces/`). While BMO is speaking, its mouth is driven by `viseme.py`, which classifies each phoneme Piper produces into one of 6 mouth shapes (closed / tiny / small / oh / wide / ah — `faces/speaking/speaking_0{1-6}.png`) and distributes the real audio duration across them. When the mouth shape changes, a blended in-between frame is shown briefly first instead of a hard cut, so the transition reads more like actual talking.
+`ui.py` opens a Tkinter window showing BMO's face (frames in `faces/`, generated from `svg_faces/`). While BMO is speaking, its mouth is driven by `viseme.py`, which classifies each phoneme Piper produces into one of 5 mouth shapes (closed / tiny / oh / wide / ah, mapped in `ui.py`'s `VISEME_FILES`) and distributes the real audio duration across them. When the mouth shape changes, a blended in-between frame is shown briefly first instead of a hard cut, so the transition reads more like actual talking.
 
 Piper doesn't expose true per-phoneme timing for this voice model, so the timing is a heuristic approximation (vowels held longer than consonants) rather than exact — good enough to look like talking, not frame-perfect lip sync.
 
@@ -78,10 +78,23 @@ The face window opens and the chat prompt (`>`) runs in the terminal — type a 
 
 Speech-to-text (talking to BMO instead of typing) is not implemented yet.
 
-### Puppet mode
+### as-bmo mode
+
+Two ways to make BMO say something directly (skipping the intent classifier):
+
+```
+> /bmo hi this is bmo
+```
+
+Prefix any message with `/bmo ` and the rest of the line is spoken directly as BMO (with lip sync), instead of BMO replying to it — mixed in with normal chatting.
 
 ```
 python bmo.py --as-bmo
 ```
 
-Skips the intent classifier entirely — whatever you type is spoken directly as BMO (with lip sync), instead of BMO replying to you. Useful for making BMO say arbitrary lines on demand.
+Or start BMO in puppet mode entirely, where every line you type (no `/bmo` prefix needed) is spoken directly as BMO instead of chatting with it.
+
+## Attribution
+
+- Face artwork (`faces/`, `svg_faces/`) and the BMO Piper voice model (`voice/bmo.onnx`) originate from [brenpoly/be-more-agent](https://github.com/brenpoly/be-more-agent), a free fan-made BMO character built on Piper's "Amy" base voice model.
+- BMO and Adventure Time are trademarks of Cartoon Network / Warner Bros. Discovery. This is a non-commercial fan project, not affiliated with or endorsed by them.
