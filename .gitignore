@@ -1,0 +1,11 @@
+# generated training artifacts (regenerate with `python training.py`)
+/model/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# os
+.DS_Store
